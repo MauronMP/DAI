@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!-- saved from url=(0142)https://swad.ugr.es/swad/tmp/8P/dZu7icUlMUzoqMLYnvNsB3hwYpAqb7I_xpLn4rnrY/DAI%20Practica%200%20-%20Python%20y%20entorno%20de%20desarrollo.html -->
+<html lang="en" data-lt-installed="true"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Required meta tags -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="./DAI Práctica 0 - Python y entorno de desarrollo_files/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="./DAI Práctica 0 - Python y entorno de desarrollo_files/prism.min.css">
+    <script src="./DAI Práctica 0 - Python y entorno de desarrollo_files/prism.js"></script>
+    <script src="./DAI Práctica 0 - Python y entorno de desarrollo_files/prism-python.min.js"></script>
+    <script src="./DAI Práctica 0 - Python y entorno de desarrollo_files/prism-bash.min.js"></script>
+    <script src="./DAI Práctica 0 - Python y entorno de desarrollo_files/prism-yaml.min.js"></script>
+  
+    <style>
+      li {
+        padding-bottom: 1em;
+      }
+    </style>
+
+    <title>DAI Práctica 0 - Python y entorno de desarrollo</title>
+  </head>
+  <body>
+    <br>
+    <div class="container">
+      <img src="./DAI Práctica 0 - Python y entorno de desarrollo_files/4365b752d25b.jpg" style="width:100%; height:240px ;" alt="">
+      <br><br><br>
+      <h6><span class="badge bg-secondary">1 Sesión</span></h6>
+      <h4>
+        Guión de prácticas 0: &nbsp; Python y entorno de desarrollo con docker
+      </h4>
+      <h6 class="font-italic small">Sergio Alonso (<a href="mailto:zerjioi@ugr.es">zerjioi@ugr.es</a>) 
+        y José María Guirao (<a href="mailto:jmguirao@ugr.es">jmguirao@ugr.es</a>)
+      </h6>
+      <br>
+      <p>
+        Durante las prácticas de la asignatura Desarrollo de Aplicaciones para Internet usaremos  
+        <a href="https://www.python.org/">Python</a> para el back-end, un lenguaje de alto nivel sencillo, 
+        potente, libre, "fácil de aprender", 
+        interpretado, multiplataforma y el <a href="https://www.devjobsscanner.com/blog/top-8-most-demanded-languages-in-2022/">
+           más usado ahora</a> en el servidor.
+        </p>
+        <p> 
+        En esta primera práctica proponemos un ambiente de desarrollo basado en <a href="https://www.docker.com/">Docker</a>, y 
+        trataremos de resolver algunos problemas genéricos de programación en python para
+        familiarizarnos con sus tipos de datos, estructuras de control, etc. 
+      </p>
+      <p>Para aquellos que no tengan conocimientos sobre este lenguaje, existen numerosos manuales en Internet que permiten acercarse 
+        a la programación Python de manera sencilla y amena como por ejemplo: <a href="https://python.swaroopch.com/">A Byte of Python</a> o el <a href="https://developers.google.com/edu/python/">manual de Google sobre Python</a>,
+        o algún <a href="https://www.youtube.com/watch?v=_uQrJ0TkZlc">video tutorial</a>.</p>
+      <br>
+      <p>
+        Durante todo el curso, usaremos 
+        <a href="https://medium.com/zero-equals-false/docker-introduction-what-you-need-to-know-to-start-creating-containers-8ffaf064930a">docker</a> y 
+        <a href="https://es.slideshare.net/ajeetraina/introduction-to-docker-compose-210321942">
+        docker-compose</a> para el entorno de desarrollo. Asi conseguimos:       
+        </p><ul>
+         <li>Aislar nuestro código del resto del ordenador, sin que interfiera lo que pueda instalarse antes o después.</li>
+         <li>Conseguir un entorno <strong>idéntico</strong> para todos los participantes del curso, nos ahorramos
+          el problema 
+          <a href="https://www.genbeta.com/desarrollo/las-25-excusas-y-mentiras-favoritas-de-los-programadores">"pues en mi ordenador funciona"</a>
+          .</li>
+         <li>Tener nuestra aplicación lista para subirla a la nube.</li>
+        </ul>
+      <p></p>
+      <br>
+      <p>Un primer paso será instalar tanto el <a href="https://docs.docker.com/get-docker/">servidor de Docker</a> 
+        como <a href="https://docs.docker.com/compose/install/">Docker Compose</a>. 
+        En este guión no se darán instrucciones concretas para la instalación puesto que depende del sistema operativo anfitrión donde desarrollaremos nuestras prácticas. Consulta los enlaces anteriores para instalarlos en tu sistema operativo. 
+        También puedes consultar el siguiente tutorial: <a href="https://djangostars.com/blog/what-is-docker-and-how-to-use-it-with-python/">What is Docker and How to Use it With Python</a>.
+      </p>
+      <p>
+        Una vez instalados Docker y Docker compose podemos construir un primer archivo <code>docker-compose.yml</code> 
+        para ejecutar los ejercicios de este guión. En este archivo especificamos que se monte un directorio 
+        <code>ejercicios</code> que debe encontrarse en el mismo directorio que  <code>docker-compose.yml</code>
+        (<a href="https://es.wikipedia.org/wiki/YAML">yml</a> es un formato para marcado ligero y archivos de configuración).
+      </p>
+      <pre class="language-yaml" tabindex="0"><code class="language-yaml" data-lang="yaml"><span class="token comment"># docker-compose.yml</span>
+ 
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">contenedor</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> python<span class="token punctuation">:</span>3.10<span class="token punctuation">-</span>alpine
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> ./ejercicios<span class="token punctuation">:</span>/ejercicios
+    <span class="token key atrule">working_dir</span><span class="token punctuation">:</span> /ejercicios</code></pre>       
+       y 
+        <pre class="language-python" tabindex="0"><code class="language-python" data-lang="python"><span class="token comment"># ejercicios/hola.py</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Hola mundo!"</span><span class="token punctuation">)</span></code></pre>
+
+        <p>Si todo va bien podemos ejecutar <code>ejercicios/hola.py</code> dentro del contenedor<code>ejercicios</code> con la siguiente orden:
+        </p>
+  
+        <pre class="language-bash" tabindex="0"><code class="language-bash" data-lang="bash"><span class="token operator">&gt;</span> <span class="token function">docker-compose</span> run contenedor python hola.py</code></pre>
+        
+        <br><br>
+        <h5>Ejercicios:</h5>
+
+        <ol>
+                    
+          <li>La <a href="http://es.wikipedia.org/wiki/Criba_de_Erat/%C3/%B3stenes">Criba de Eratóstenes</a> es un sencillo algoritmo que permite encontrar todos los números primos menores de un número natural dado. Prográmelo.</li>
+          
+          <li>Cree un programa que lea de un fichero de texto un número entero <code>n</code> y escriba en otro fichero de texto el <code>n-ésimo</code> número de la <a href="http://es.wikipedia.org/wiki/Sucesi/%C3/%B3n_de_Fibonacci">sucesión de Fibonacci</a>.</li>
+          
+          <li>Cree un programa que:
+          
+            <ul>
+              <li>Genere aleatoriamente una cadena de <code>[</code> y <code>]</code>.</li>
+              
+              <li>Compruebe mediante una función si dicha secuencia está <em>balanceada</em>, es decir, que se componga de parejas de corchetes de apertura y cierre correctamente anidados. Por ejemplo:
+                <ul>
+                  <li><code>[]</code> -&gt; Correcto</li>
+                  <li><code>[[][[]]]</code> -&gt; Correcto</li>
+                  <li><code>[][]</code> -&gt; Correcto</li>
+                  <li><code>][</code> -&gt; Incorrecto</li>
+                  <li><code>[[][[</code> -&gt; Incorrecto</li>
+                  <li><code>[]][[]</code> -&gt; Incorrecto</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li> Utilizando <a href="http://docs.python.org/3.7/library/re.html">expresiones regulares</a> realice funciones para:
+            <ul>
+              <li>Identificar cualquier palabra seguida de un espacio y una única letra mayúscula (por ejemplo: <code>Apellido N</code>).</li>
+               
+              <li>Identificar correos electrónicos válidos (empieza por una expresión genérica y ve refinándola todo lo posible).</li>
+               
+              <li>Identificar números de tarjeta de crédito cuyos dígitos estén separados por <code>-</code> o espacios en blanco cada paquete de cuatro dígitos: <code>1234-5678-9012-3456</code> ó <code>1234 5678 9012 3456</code>.</li>
+            </ul>
+          </li>
+
+        </ol>
+        
+    </div>
+  
+
+</body></html>
