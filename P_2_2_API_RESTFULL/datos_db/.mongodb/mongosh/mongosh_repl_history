@@ -1,0 +1,104 @@
+db.recipes.find( {"$or": [ {"ingredients.name": {"$regex": "(?i)Vodka"}},{"instructions": {"$regex": "(?i)Vodka"}}]})
+use cocketeles
+db.recipes.updateOne({"_id":ObjectId("634479efcf512d6293015521")},{$set: {"name":"Prueba de ejercicio con PUT","instructions":"Haciendo PUT", "ingredients":[{"name":"PUT","quantity":{"quantity":"2", "unit":"oz"}}], "slug":"PUT", "garnish":"PUT", "reviews":"PUT"}})
+use cockteles
+db.recipes.updateOne({"_id":"634479efcf512d6293015521"},{"name":"Prueba de ejercicio con PUT","instructions":"Haciendo PUT", "ingredients":[{"name":"PUT","quantity":{"quantity":"2", "unit":"oz"}}], "slug":"PUT", "garnish":"PUT", "reviews":"PUT"})
+db.recipes.updateOne({"name":"Prueba de ejercicio con PUT","instructions":"Haciendo PUT", "ingredients":[{"name":"PUT","quantity":{"quantity":"2", "unit":"oz"}}], "slug":"PUT", "garnish":"PUT", "reviews":"PUT"})
+db.recipes.update({"name":"Prueba de ejercicio con PUT","instructions":"Haciendo PUT", "ingredients":[{"name":"PUT","quantity":{"quantity":"2", "unit":"oz"}}], "slug":"PUT", "garnish":"PUT", "reviews":"PUT"})
+use cockteles
+db.recipes.find({"_id":ObjectId("634429b2ef6b181f282d4e50")})
+db.recipes.deleteOne({"_id":ObjectId("634429b2ef6b181f282d4e50")})
+db.recipes.delete_One({"_id":ObjectId("634429b2ef6b181f282d4e50")})
+db.recipes.find({"_id":ObjectId("634429b2ef6b181f282d4e50")})
+db.recipes.count({"_id": "634429b2ef6b181f282d4e50","garnish": "POST","ingredients": [{"name": "POST","quantity": {}}],"instructions": "Haciendo Post","name": "Prueba de ejercicio con POST","reviews": "POST","slug": "POST"})
+use cockteles
+db.recipes.count({"_id": "634429b2ef6b181f282d4e50","garnish": "POST","ingredients": [{"name": "POST","quantity": {}}],"instructions": "Haciendo Post","name": "Prueba de ejercicio con POST","reviews": "POST","slug": "POST"})
+    "slug": "POST"
+    "reviews": "POST",
+    "name": "Prueba de ejercicio con POST",
+    "instructions": "Haciendo Post",
+{ "name": "POST", "quantity": { } } ],
+    "ingredients": [
+    "garnish": "POST",
+    "_id": "634429b2ef6b181f282d4e50",
+db.recipes.count( {)
+db.recipes.count({ "name":"a", "instructions":"a", "ingredients":[ { "name":"Vodka", "quantity":{ "quantity":"2", "unit":"oz" } } ], "slug":"a", "garnish":" ", "reviews":" "})
+db.recipes.count
+db.recipes.count()
+db.recipes.find({"_id":ObjectId("634429b2ef6b181f282d4e50")})
+db.recipes.find({"_id":ObjectID("634429b2ef6b181f282d4e50")})
+db.recipes.find({'_id':ObjectId('5f7daa048ec9dfb536781afc')})
+db.recipes.find({'_id':ObjectID('5f7daa048ec9dfb536781afc')})
+use cocketeles
+db.recipes.find({"_id": ObjectId("5f7daa048ec9dfb536781afc")})
+db.recipes.findOne({"_id": ObjectId("5f7daa048ec9dfb536781afc")})
+db.recipes.find({"_id": ObjectId("5f7daa048ec9dfb536781afc")})
+db.recipes.find({"_id": ObjectId("634429b2ef6b181f282d4e50")})
+use cocketeles
+db.recipes.find({"_id": ObjectId("5f7daa048ec9dfb536781afc")})
+use cockteles
+db.recipes.find({"_id": ObjectId("5f7daa048ec9dfb536781afc")})
+db.recipes.count
+db.recipes.find({'_id': ObjectId("5f7daa048ec9dfb536781afc")})
+db.recipes.find({'_id': ObjectId('5f7daa048ec9dfb536781afc')})
+db.recipes.find({'_id': ObjectID('5f7daa048ec9dfb536781afc')})
+db.recipes.find({'_id':ObjectID('5f7daa048ec9dfb536781afc')})
+db.recipes.find({'_id':'5f7daa048ec9dfb536781afc'})
+db.recipes.find({'_id': '5f7daa048ec9dfb536781afc'})
+db.recipes.find_one({'_id': '5f7daa048ec9dfb536781afc'})
+db.recipes.findOne({'_id': '5f7daa048ec9dfb536781afc'})
+db.test.findOne({'_id': '5f7daa048ec9dfb536781afc'})
+db.recipes.find({'_id': 5f7daa048ec9dfb536781afc})
+db.recipes.find({'_id': '5f7daa048ec9dfb536781afc'})
+db.test.find({'_id': '5f7daa048ec9dfb536781afc'})
+db.test.find({'_id': 5f7daa048ec9dfb536781afc})
+db.test.find({'_id': '5f7daa048ec9dfb536781afc'})
+db.test.findOne({'_id': '5f7daa048ec9dfb536781afc'})
+db.test.find({'_id': '5f7daa048ec9dfb536781afc'})
+db.test.find_one({'_id': '5f7daa048ec9dfb536781afc'})
+db.test.find({'_id': "ObjectID(63440b59125f5d08273ed604)"})
+db.test.find({'_id': "ObjectID('63440b59125f5d08273ed604')"})
+db.test.find({'_id': ObjectID('63440b59125f5d08273ed604')})
+db.test.findOne({'_id': ObjectID('63440b59125f5d08273ed604')})
+db.test.findOne({'_id': '63440b59125f5d08273ed604'})
+db.test.find_one({'_id': '63440b59125f5d08273ed604'})
+db.test.findOne({'_id': '63440b59125f5d08273ed604'})
+db.test.find({'_id': '63440b59125f5d08273ed604'})
+db.test.find({'_id':63440b59125f5d08273ed604}
+db.test.find({'_id':63440b59125f5d08273ed604})
+db.test.find({'_id': '63440b59125f5d08273ed604'})
+db.test.find_one({'_id': '63440b59125f5d08273ed604'})
+db.test.find_one({'_id': 63440b59125f5d08273ed604})
+db.recipes.findOne({ "name":"a", "instructions":"a", "ingredients":[ { "name":"Vodka", "quantity":{ "quantity":"2", "unit":"oz" } } ], "slug":"a", "garnish":" ", "reviews":" "})
+db.recipes.insertOne({ "name":"a", "instructions":"a", "ingredients":[ { "name":"Vodka", "quantity":{ "quantity":"2", "unit":"oz" } } ], "slug":"a", "garnish":" ", "reviews":" "})
+db.recipes.insert({ "name":"a", "instructions":"a", "ingredients":[ { "name":"Vodka", "quantity":{ "quantity":"2", "unit":"oz" } } ], "slug":"a", "garnish":" ", "reviews":" "})
+db.recipes.insert_one({ "name":"a", "instructions":"a", "ingredients":[ { "name":"Vodka", "quantity":{ "quantity":"2", "unit":"oz" } } ], "slug":"a", "garnish":" ", "reviews":" "})
+db.recipes.count({ "name":"a", "instructions":"a", "ingredients":[ { "name":"Vodka", "quantity":{ "quantity":"2", "unit":"oz" } } ], "slug":"a", "garnish":" ", "reviews":" "})
+            "reviews":" "
+            "garnish":" ",
+            "slug":"a",
+{ "name":"Vodka", "quantity":{ "quantity":"2", "unit":"oz" } } ],
+            "ingredients":[
+            "instructions":"a",
+            "name":"a",
+db.recipes.count({)
+            "reviews" : " "
+            "garnish" : " ",
+            "slug":  "a",
+{ "name": "Vodka", "quantity": { "quantity": "2", "unit": "oz" } } ],
+            "ingredients": [
+            "instructions": "a",
+            "name" : "a",
+db.recipes.count({)
+ db.recipes.find()
+use cockteles
+show collections
+ db.recipes.find()
+ db.cockteles.find()
+show databases
+help
+?
+ls
+ db.recipes.find()
+find('name': 'vodka')
+db.cockteles
