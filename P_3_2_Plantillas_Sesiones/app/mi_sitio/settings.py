@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-3g++()(a+^@q)$z($7i@)5y3!9vr)c559_w$!b7$vi!93&(&x9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'recetas.apps.RecetasConfig'
 ]
 
 MIDDLEWARE = [
@@ -54,7 +55,7 @@ ROOT_URLCONF = 'mi_sitio.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'recetas/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
