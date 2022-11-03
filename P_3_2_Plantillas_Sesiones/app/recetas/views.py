@@ -8,6 +8,10 @@ from .models import Receta
 def index(request):
     return render(request, "base.html")
 
+
+def buscar(request):
+    return render(request,'buscar.html')
+
 def all_events(request):
     recetas_list = Receta.objects.all()
     return render(request, 'base.html', {'recetas_list' : recetas_list})
