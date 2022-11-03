@@ -26,6 +26,7 @@
               <th scope="col">num</th>
               <th scope="col">Nombre</th>
               <th scope="col">Preparacion</th>
+              <th scope="col">Foto</th>
             </tr>
           </thead>
           <tbody>
@@ -35,6 +36,7 @@
               <th scope="row">{{ forloop.counter0 }}</th>
               <td>{{ recetas.nombre }}</td>
               <td>{{ recetas.preparacion }}</td>
+              <td><img src="{{ recetas.foto }}" class="w-50" /></td>
             </tr>
 
             {% endfor %} {% endblock %}
