@@ -13,15 +13,16 @@
             </thead>
             <tbody>
               {% block content %} 
-                {% for recetas in recetas_list %}
+                {% for r in resultado %}
                   <tr>
                     <th scope="row "><p class="text-center">{{ forloop.counter0 }}</p></th>
-                    <td>{{ recetas.nombre }}</td>
-                    <td>{{ recetas.preparacion }}</td>
+                    <td>{{ r.nombre }}</td>
+                    <td>{{ r.preparacion }}</td>
                     <td> 
-                        <form class="input-form text-center" name = "form"  method = "POST"  action="buscar">
-                            <input id="prodId" name="prodId" type="hidden" value="{{ recetas.nombre }}">
-                            <input class="btn btn-info btn-sm" type="submit" value="Submit">
+                        <form class="input-form text-center" name = "form"  method = "POST"  action= "{% url 'buscar' %}">
+                          {% csrf_token %}
+                            <input name='textbox1' type="hidden" value="{{ r.nombre }}"/>
+                            <input class="btn btn-info btn-sm my-2" type="submit" value="Más info">
                         </form>
                     </td>
                   </tr>

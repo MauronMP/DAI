@@ -7,7 +7,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
   path('admin/', admin.site.urls),
   path('', include('recetas.urls')),
-  path('buscar', include('recetas.urls')),
+  
 ]
 
 # Serving the media files in development mode

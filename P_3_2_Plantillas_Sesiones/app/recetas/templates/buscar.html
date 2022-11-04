@@ -20,7 +20,25 @@
   <body>
     {% include "navbar.html" %}
 
-    
+    <ul>
+      
+      
+      <tr>
+        <td>{{ receta.nombre }}</td>
+        <td>{{ receta.preparacion }}</td>
+        <td><img src="{{ receta.foto }}" alt="" class="w-25"></td>
+      </tr>
+      <h1>s</h1>
+      {% for i in ingrediente %}
+                  <tr>
+                    <th scope="row "><p class="text-center">{{ forloop.counter0 }}</p></th>
+                    <td>{{ i.nombre }}</td>
+                    <td>{{ i.cantidad }}</td>
+                    <td>{{ i.unidades }}</td>
+                  </tr>
+                {% endfor %} 
+
+    </ul>
     
     {% include "footer.html" %}
 
