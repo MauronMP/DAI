@@ -20,28 +20,75 @@
   <body>
     {% include "navbar.html" %}
 
-    <ul>
-      
-      
-      <tr>
-        <td>{{ receta.nombre }}</td>
-        <td>{{ receta.preparacion }}</td>
-        <td><img src="{{ receta.foto }}" alt="" class="w-25"></td>
-      </tr>
-      <h1>s</h1>
-      {% for i in ingrediente %}
-                  <tr>
-                    <th scope="row "><p class="text-center">{{ forloop.counter0 }}</p></th>
-                    <td>{{ i.nombre }}</td>
-                    <td>{{ i.cantidad }}</td>
-                    <td>{{ i.unidades }}</td>
-                  </tr>
-                {% endfor %} 
+    <div class="container my-5">
+      <div class="row align-items-center">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="offset-md-2 col-md-7">
+              <h2>Receta:</h2>
+            </div>
+          </div>
+        </div>
 
-    </ul>
-    
+        <div class="container align-items-center my-2">
+          <div class="row align-items-center">
+            <div class="offset-md-2 col-md-1">
+              <p class="fw-bold">Nombre</p>
+            </div>
+            <div class="col-md-4"><p class="fw-bold">Preparacion</p></div>
+            <div class="col-md-2">
+              <p class="fw-bold">Fotografia</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="container align-items-center">
+          <div class="row align-items-center">
+            <div class="offset-md-2 col-md-1">
+              {{ receta.nombre }}
+            </div>
+            <div class="col-md-4">{{ receta.preparacion }}</div>
+            <div class="col-md-2">
+              <img src="{{ receta.foto }}" alt=""  class="w-75" />
+            </div>
+          </div>
+        </div>
+
+        <div class="container my-4">
+          <div class="row align-items-center ">
+            <div class="offset-md-2 col-md-7">
+              <h2>Ingredientes:</h2>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="container align-items-center my-2">
+          <div class="row align-items-center">
+            <div class="offset-md-2 col-md-1">
+              <p class="fw-bold">Nº</p>
+            </div>
+            <div class="col-md-2"><p class="fw-bold">Nombre</p></div>
+            <div class="col-md-2">
+              <p class="fw-bold">cantidad</p>
+            </div>
+            <div class="col-md-2"><p class="fw-bold">Unidades</p></div>
+          </div>
+        </div>
+
+        <div class="container">
+          {% for i in ingrediente %}
+          <div class="row align-items-center">
+            <div class="offset-md-2 col-md-1">{{ forloop.counter0 }}</div>
+            <div class="col-md-2">{{ i.nombre }}</div>
+            <div class="col-md-2">{{ i.cantidad }}</div>
+            <div class="col-md-2">{{ i.unidades }}</div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
     {% include "footer.html" %}
-
-    
   </body>
 </html>
