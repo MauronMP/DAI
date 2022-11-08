@@ -13,7 +13,12 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-
+    {% if request.session.fav_color == "white" %}
+    <link rel="stylesheet" type="text/css" href="static/ligth.css" />
+    {% else %}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="static/dark.css" />
+    {% endif %} 
     <title>Practica 3_2 Django</title>
   </head>
 
@@ -45,9 +50,9 @@
         <div class="container align-items-center">
           <div class="row align-items-center">
             <div class="offset-md-2 col-md-1">
-              {{ receta.nombre }}
+              <p>{{ receta.nombre }}</p>
             </div>
-            <div class="col-md-4">{{ receta.preparacion }}</div>
+            <div class="col-md-4"><p>{{ receta.preparacion }}</p></div>
             <div class="col-md-2">
               <img src="{{ receta.foto }}" alt=""  class="w-75" />
             </div>
@@ -79,10 +84,10 @@
         <div class="container">
           {% for i in ingrediente %}
           <div class="row align-items-center">
-            <div class="offset-md-2 col-md-1">{{ forloop.counter0 }}</div>
-            <div class="col-md-2">{{ i.nombre }}</div>
-            <div class="col-md-2">{{ i.cantidad }}</div>
-            <div class="col-md-2">{{ i.unidades }}</div>
+            <div class="offset-md-2 col-md-1"><p>{{ forloop.counter0 }}</p></div>
+            <div class="col-md-2"><p>{{ i.nombre }}</p></div>
+            <div class="col-md-2"><p>{{ i.cantidad }}</p></div>
+            <div class="col-md-2"><p>{{ i.unidades }}</p></div>
           </div>
           {% endfor %}
         </div>

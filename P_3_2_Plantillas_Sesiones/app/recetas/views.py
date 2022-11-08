@@ -22,6 +22,13 @@ def buscar(request):
 
 def all_events(request):
     
+    colorModo = request.GET.get("modo")
+    if colorModo is not None:
+        if request.session["fav_color"] == "white":
+            request.session["fav_color"] = "black"
+        else:
+            request.session["fav_color"] = "white"
+
     query = request.GET.get("busqueda")
     if query is not None:
         object_list = Receta.objects.filter(nombre__contains=query)
