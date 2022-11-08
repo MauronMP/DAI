@@ -5,12 +5,6 @@ from django.views.decorators.csrf import csrf_protect
 from .models import Receta, Ingrediente
 
 
-def index(request):
-    busqueda = request.GET.get('busqueda')
-    print(busqueda)
-    return render(request, "base.html")
-
-
 def buscar(request):
     
     data= request.POST.get('textbox1')
@@ -24,12 +18,28 @@ def buscar(request):
         }
         return render(request, 'buscar.html', context)
     else:
-        return render(request, "buscar.html")
-
+        return all_events(request)
 
 def all_events(request):
-    recetas_list = Receta.objects.all()
-    context = {
-        'resultado': recetas_list,
-    }
+    
+    query = request.GET.get("busqueda")
+    if query is not None:
+        object_list = Receta.objects.filter(nombre__contains=query)
+        if not object_list:
+            recetas_list = Receta.objects.all()
+            context = {
+                'resultado': recetas_list,
+            }
+        else:
+            context = {
+                'resultado': object_list,
+            }
+    else:
+        recetas_list = Receta.objects.all()
+        context = {
+            'resultado': recetas_list,
+        }
+    
+    
+    
     return render(request, 'base.html', context)
