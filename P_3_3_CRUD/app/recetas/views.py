@@ -23,6 +23,19 @@ def post_new(request):
         form = PostForm()
     return render(request,'post_edit.html', {'form': form})
 
+def update_recipe(request, pk):
+    post = get_object_or_404(Receta, pk=pk)
+
+    if request.method == "POST":
+        form = PostForm(request.POST,request.FILES, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('post_detail', pk=post.pk)
+    else:
+        form = PostForm(instance=post)
+    return render(request, 'post_edit.html', {'form': form})
+    
 def buscar(request):
     
     data= request.POST.get('textbox1')

@@ -22,50 +22,18 @@
                   <td class="col-md-4"> 
                       
                       <div class="container">
-                        <div class="row row-cols-3">
+                        <div class="row row-cols-2">
                           <div class="col">
-                            <form class="input-form text-center" name = "form"  method = "POST"  action= "{% url 'buscar' %}">
+                            <form class="input-form text-center p-1" method = "POST"  action= "{% url 'buscar' %}">
                               {% csrf_token %}
                                 <input name='textbox1' type="hidden" value="{{ r.nombre }}"/>
-                                <input class="btn btn-info btn-sm my-2 w-100" type="submit" value="Más info">
+                                <input class="btn btn-info btn-sm w-100 " type="submit" value="Más info">
                             </form>
                           </div>  
                           <div class="col">
-                            <form class="input-form text-center" name = "form"  method = "POST"  action= "{% url 'buscar' %}">
-                              {% csrf_token %}
-                                <input name='textbox1' type="hidden" value="{{ r.nombre }}"/>
-                                <input class="btn btn-warning btn-sm my-2 w-100" type="submit" value="Editar">
-                            </form>
+                            <a href="{% url 'update_recipe' pk=r.pk %}"  class="btn btn-warning w-75"> Editar</a>
                           </div>
-                          <div class="col">
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                              Borrar
-                            </button>
-
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                              <div class="modal-dialog">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar {{ r.nombre }}</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                  </div>
-                                  <div class="modal-body">
-                                    Se va a eliminar la receta ¿seguro?
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
-                                    <form class="input-form text-center" name = "form"  method = "GET">
-                                      {% csrf_token %}
-                                        <input name='textbox1' type="hidden" value="{{ r.nombre }}"/>
-                                        <input class="btn btn-warning btn-sm my-2 w-100" type="submit" value="Eliminar">{{ r.nombre }}
-                                    </form>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                          
                           </div>
                         </div>
                       </div>
