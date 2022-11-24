@@ -6,7 +6,7 @@ from .forms import PostForm
 from django.shortcuts import redirect
 from django.shortcuts import render, get_object_or_404
 from .models import Receta
-
+from django.contrib import messages
 
 def post_detail(request, pk):
     post = get_object_or_404(Receta, pk=pk)
@@ -18,6 +18,7 @@ def post_new(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
+            messages.info(request, "Se ha creado la receta")
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm()
@@ -31,6 +32,7 @@ def update_recipe(request, pk):
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
+            messages.info(request, "Se ha actualizado la receta")
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm(instance=post)
@@ -63,7 +65,7 @@ def all_events(request):
     encontrado = request.GET.get('textbox1')
     if request.GET.get('textbox1'):
         Receta.objects.filter(id=(Receta.objects.get(nombre=encontrado)).id).delete()
-
+        messages.info(request, "Se ha borrado la receta")
     if query is not None:
         object_list = Receta.objects.filter(nombre__contains=query)
         if not object_list:

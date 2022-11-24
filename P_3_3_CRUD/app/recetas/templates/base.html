@@ -25,6 +25,13 @@
   <body>
 
     {% include "navbar.html" %} 
+    {% if messages %}
+        {% for message in messages %}
+        <h1 class="text-center"> 
+            <div class = "alert alert-{{message.tags}}">{{message}}</div>
+        </h1>       
+        {% endfor %}
+    {% endif %}
     {% include "tablaCockteles.html" %} 
     {% include "footer.html" %}
   </body>
