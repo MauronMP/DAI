@@ -1,0 +1,60 @@
+
+<div class="container">
+  <div class="row my-5">
+    <div class="offset-md-1 col-md-10">
+      <div class="panel-body">
+        <table class="table table-bordered text-center">
+          <thead>
+            <tr class="align-middle">
+              <th scope="col">Num</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Preparacion</th>
+              <th scope="col">Ver más información</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% block content %} 
+              {% for r in resultado %}
+                <tr class="align-middle">
+                  <th scope="row"><p class="text-center">{{ forloop.counter0 }}</p></th>
+                  <td class="col-md-2">{{ r.nombre }}</td>
+                  <td class="col-md-5">{{ r.preparacion }}</td>
+                  <td class="col-md-4"> 
+                      
+                      <div class="container">
+                        <div class="row row-cols-2">
+                          <div class="col">
+                            <form class="input-form text-center p-1" method = "POST"  action= "{% url 'buscar' %}">
+                              {% csrf_token %}
+                                <input name='textbox1' type="hidden" value="{{ r.nombre }}"/>
+                                <input class="btn btn-info btn-sm w-100 " type="submit" value="Más info">
+                            </form>
+                          </div>  
+                          {% if request.user.is_staff %}
+                          <div class="col">
+                            <a href="{% url 'update_recipe' pk=r.pk %}"  class="btn btn-warning w-75"> Editar</a>
+                          </div>
+                          {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                      
+                  </td>
+                </tr>
+              {% endfor %} 
+            {% endblock %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if request.user.is_staff %}
+<div class="container">
+  <div class="d-flex justify-content-md-center align-items-center">
+      <a href="{% url 'post_new' %}" class="btn btn-success" >Nueva receta</a>
+    </div>
+</div>
+{% endif %}
+
