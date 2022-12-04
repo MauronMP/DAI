@@ -1,0 +1,38 @@
+<!-- Modal_info -->
+<div class="modal fade" id="modal_borrar" tabindex="-1" role="dialog" aria-labelledby="modal_info" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal_infoLavel">Editar cocktel</h5>
+          <button type="button" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">¿Seguro de eliminar la receta?</div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                Close
+            </button>
+
+          <button onclick="eliminar_receta(this.value)"
+          type="button" id="boton_eliminar_receta" class="btn btn-danger" data-bs-dismiss="modal" value="VALOR">Borrar
+        </button>
+
+        <script>
+            function eliminar_receta(id){
+                fetch("api/recipes/"+id,
+                    {
+                        method: "DELETE",
+                    })
+                    .then(response => {
+                        const element = document.getElementById(id);
+                        element.remove();
+                    })
+                    .catch(error => console.log(error))
+            }
+        </script>
+        </div>
+      </div>
+    </div>
+  </div>
+  
