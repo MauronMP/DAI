@@ -1,0 +1,50 @@
+<!-- Modal_info -->
+<div class="modal fade" id="modal_edit" tabindex="-1" role="dialog" aria-labelledby="modal_info" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form>
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal_info">Editar cocktel</h5>
+          <button type="button" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="my-3">
+              <label for="inputNombreCocktelEditar" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="inputNombreCocktelEditar" aria-describedby="cocktelHelp"
+                value="">
+              <div id="cocktelHelp" class="form-text">Nombre del cocktel.</div>
+            </div>
+            <div class="my-3">
+              <div class="form-group">
+                <label for="textareaIngredientesEditar" class="form-label">Ingredientes</label>
+                <textarea class="form-control" id="textareaIngredientesEditar" rows="4"
+                  aria-describedby="ingredientesHelp" value=""></textarea>
+                <div id="ingredientesHelp" class="form-text">Componentes, escrbir por linea con -.</div>
+              </div>
+            </div>
+            <div class="my-3">
+              <div class="form-group">
+                <label for="textareaInstruccionesEditar" class="form-label">Instrucciones</label>
+                <textarea class="form-control" id="textareaInstruccionesEditar" rows="4"
+                  aria-describedby="instruccionesHelp" value=""></textarea>
+                <div id="instruccionesHelp" class="form-text">Instrucciones, escrbir por linea con -.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Close
+          </button>
+          <button onclick="editar_receta(this.value)" type="button" id="boton_editar_receta" class="btn btn-danger"
+            data-bs-dismiss="modal" value="VALOR">Editar
+          </button>
+          <script src="{{url_for('static', filename='modalEditaReceta.js')}}"></script>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

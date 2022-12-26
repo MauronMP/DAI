@@ -1,0 +1,49 @@
+<!-- Modal_new -->
+<div class="modal fade" id="modal_new" tabindex="-1" role="dialog" aria-labelledby="modal_new" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <form>
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal_new">Añadir nuevo cocktel</h5>
+          <button type="button" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="container">
+          <div class="row">
+              <div class="my-3">
+                <label for="inputNombreCocktel" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="inputNombreCocktel" aria-describedby="cocktelHelp">
+                <div id="cocktelHelp" class="form-text">Nombre del cocktel.</div>
+              </div>
+              <div class="my-3">
+                <div class="form-group">
+                  <label for="textareaIngredientes" class="form-label">Ingredientes</label>
+                  <textarea class="form-control" id="textareaIngredientes" rows="4" aria-describedby="ingredientesHelp"></textarea>
+                  <div id="ingredientesHelp" class="form-text">Componentes, escrbir por linea con -.</div>
+                </div>
+              </div>
+              <div class="my-3">
+                <div class="form-group">
+                  <label for="textareaInstrucciones" class="form-label">Instrucciones</label>
+                  <textarea class="form-control" id="textareaInstrucciones" rows="4" aria-describedby="instruccionesHelp"></textarea>
+                  <div id="instruccionesHelp" class="form-text">Instrucciones, escrbir por linea con -.</div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Close
+          </button>
+          <button onclick="nueva_receta(this.value)" type="button" id="boton_nueva_receta" class="btn btn-primary"
+            data-bs-dismiss="modal" value="">Crear
+          </button>
+        </div>
+        
+        <script src="{{url_for('static', filename='modalNuevaReceta.js')}}"></script>
+      </form>
+      </div>
+    </div>
+  </div>
+  

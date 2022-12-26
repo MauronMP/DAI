@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- CSS para el modo oscuro -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <title>Práctica 4 Pablo_Morenilla</title>
+    </head>
+    <body>
+        <div id="theme">
+            {% include 'navbar.html' %}
+            {% include 'modal_datos.html' %}
+            {% include 'modal_delete.html' %}
+            {% include 'modal_new.html' %}
+            {% include 'modal_edit.html' %}
+
+            <!-- Tiene los botones que aumentan, decrementan y cambian a modo oscuro y claro -->
+            <div class="container mt-5 mb-5">
+                <div class="container mb-3">
+                    <div class="row">
+                        <div class="col-md-2"><button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#modal_new" data-bs-dismiss="modal">Crear</button></div>
+                        <div class="col-sm-2 text-center"><button type="button" class="btn btn-success btn-sm " value="+"
+                                onclick="IncrementarTamanioTexto()">Incrementar texto</div>
+                        <div class="col-md-2 text-center"><button type="button" class="btn btn-success btn-sm " value="-"
+                                onclick="DecrementarTamanioTexto()">Decrementa texto</div>
+                        <div class="col-md-2 text-center"><button id="toggle-btn" type="button"
+                                class="btn btn-dark btn-sm dark-mode-toggle" onclick="modoOscuro()">Oscuro/Claro</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabla de los cockteles con las cabeceras -->
+                <div id="tablaContenido">
+                    <table id="trTable" class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>N</th>
+                                <th>Name</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+        <script src="{{url_for('static', filename='listadoCockteles.js')}}"></script>
+        <script src="{{url_for('static', filename='darkMode.js')}}"></script>
+        <script src="{{url_for('static', filename='textSize.js')}}"></script>
+        <script src="{{url_for('static', filename='detalleCocktel.js')}}"></script>
+        <script src="{{url_for('static', filename='borraCocktel.js')}}"></script>
+        <script src="{{url_for('static', filename='editaCocktel.js')}}"></script>
+    </body>
+</html>
